@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		504DF1342A89251200E184F1 /* TravelLocationsViewModelState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504DF1332A89251200E184F1 /* TravelLocationsViewModelState.swift */; };
+		504DF1362A893BDB00E184F1 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504DF1352A893BDB00E184F1 /* HeaderView.swift */; };
+		504DF1582A89411600E184F1 /* CatogoryListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504DF1572A89411600E184F1 /* CatogoryListItem.swift */; };
+		504DF15A2A8941C600E184F1 /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504DF1592A8941C600E184F1 /* CategoryListView.swift */; };
+		504DF15C2A894B5100E184F1 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504DF15B2A894B5100E184F1 /* SearchBar.swift */; };
 		50FA7D5B2A8793BE00DE6B72 /* TravelerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FA7D5A2A8793BE00DE6B72 /* TravelerApp.swift */; };
 		50FA7D5D2A8793BE00DE6B72 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FA7D5C2A8793BE00DE6B72 /* ContentView.swift */; };
 		50FA7D5F2A8793C000DE6B72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50FA7D5E2A8793C000DE6B72 /* Assets.xcassets */; };
@@ -35,6 +40,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		504DF1332A89251200E184F1 /* TravelLocationsViewModelState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelLocationsViewModelState.swift; sourceTree = "<group>"; };
+		504DF1352A893BDB00E184F1 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		504DF1572A89411600E184F1 /* CatogoryListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatogoryListItem.swift; sourceTree = "<group>"; };
+		504DF1592A8941C600E184F1 /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
+		504DF15B2A894B5100E184F1 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		50FA7D572A8793BE00DE6B72 /* Traveler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Traveler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50FA7D5A2A8793BE00DE6B72 /* TravelerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelerApp.swift; sourceTree = "<group>"; };
 		50FA7D5C2A8793BE00DE6B72 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -184,8 +194,13 @@
 			isa = PBXGroup;
 			children = (
 				50FA7D6C2A87D0F600DE6B72 /* TravelLocationsViewModel.swift */,
+				504DF1332A89251200E184F1 /* TravelLocationsViewModelState.swift */,
 				50FA7D6E2A87D37500DE6B72 /* TravelLocation.swift */,
 				50FA7D762A87E66E00DE6B72 /* TravelLocationsView.swift */,
+				504DF15B2A894B5100E184F1 /* SearchBar.swift */,
+				504DF1352A893BDB00E184F1 /* HeaderView.swift */,
+				504DF1572A89411600E184F1 /* CatogoryListItem.swift */,
+				504DF1592A8941C600E184F1 /* CategoryListView.swift */,
 				50FA7D782A87E8C600DE6B72 /* TravelLocationItemView.swift */,
 			);
 			path = Views;
@@ -292,15 +307,20 @@
 				50FA7D6F2A87D37500DE6B72 /* TravelLocation.swift in Sources */,
 				50FA7D692A87CD3000DE6B72 /* PublishersExtension.swift in Sources */,
 				50FA7D5D2A8793BE00DE6B72 /* ContentView.swift in Sources */,
+				504DF15A2A8941C600E184F1 /* CategoryListView.swift in Sources */,
 				50FA7D7B2A87E9E800DE6B72 /* Spinner.swift in Sources */,
 				50FA7D732A87DE1E00DE6B72 /* TravelLocationsDTO.swift in Sources */,
+				504DF1582A89411600E184F1 /* CatogoryListItem.swift in Sources */,
 				50FA7D6B2A87CF3A00DE6B72 /* Feedback.swift in Sources */,
+				504DF1362A893BDB00E184F1 /* HeaderView.swift in Sources */,
 				50FA7D7D2A87EF3D00DE6B72 /* AsyncImage.swift in Sources */,
 				50FA7D9D2A88BF7D00DE6B72 /* RealTravelLocationsInteractor.swift in Sources */,
 				50FA7D992A88BC5100DE6B72 /* TravelLocationsWebRepository.swift in Sources */,
+				504DF15C2A894B5100E184F1 /* SearchBar.swift in Sources */,
 				50FA7D9F2A88E50100DE6B72 /* AppEnvironment.swift in Sources */,
 				50FA7D7F2A87F09300DE6B72 /* ImageCache.swift in Sources */,
 				50FA7D912A88BAFA00DE6B72 /* PublisherExtension.swift in Sources */,
+				504DF1342A89251200E184F1 /* TravelLocationsViewModelState.swift in Sources */,
 				50FA7D932A88BB1B00DE6B72 /* NetworkHelpers.swift in Sources */,
 				50FA7D5B2A8793BE00DE6B72 /* TravelerApp.swift in Sources */,
 			);

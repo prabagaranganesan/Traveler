@@ -21,6 +21,14 @@ final class TravelLocationsViewModel: ObservableObject {
         bindingState()
     }
     
+    func getCatogories() -> [CatogoryItem] {
+        let beach = CatogoryItem(imageName: "beach_cat", title: "Beach", isSelected: true)
+        let mountain = CatogoryItem(imageName: "mountain_cat", title: "Mountain", isSelected: false)
+        let waterFalls = CatogoryItem(imageName: "falls_cat", title: "Water Falls", isSelected: false)
+        let forests = CatogoryItem(imageName: "forests_cat", title: "Forests", isSelected: false)
+        return [beach, mountain, waterFalls, forests] //TODO: convert as json file
+    }
+    
     private func bindingState() {
         Publishers.system(initial: state,
                           reduce: Self.reduce,
@@ -41,7 +49,7 @@ final class TravelLocationsViewModel: ObservableObject {
         Feedback { (state: State) -> AnyPublisher<Event, Never> in
             guard case .loading = state else { return Empty().eraseToAnyPublisher() }
             
-            return self.container.interacters.travelLocationsInteractor.load(search: "Swizz beaches")
+            return self.container.interacters.travelLocationsInteractor.load(search: "Miami beaches")
                 .map { $0.map(TravelLocation.init) }
                 .map(Event.onTravelLocationLoaded)
                 .catch { Just(Event.onfailedtoLoadLocations($0)) }
@@ -85,21 +93,5 @@ extension TravelLocationsViewModel {
 extension TravelLocationsViewModel {
     func userInput(input: AnyPublisher<Event, Never>) -> Feedback<State, Event> {
         Feedback { _ in input }
-    }
-}
-
-extension TravelLocationsViewModel {
-    enum State {
-        case idle
-        case loading
-        case loaded([TravelLocation])
-        case error(Error)
-    }
-    
-    enum Event {
-        case onAppear
-        case onSelectLocation(Int)
-        case onTravelLocationLoaded([TravelLocation])
-        case onfailedtoLoadLocations(Error)
     }
 }

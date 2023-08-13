@@ -20,11 +20,9 @@ extension View {
     }
 }
 
-
 extension EnvironmentValues {
     var injected: DIContainer {
         get { self[DIContainer.self] }
         set { self[DIContainer.self] = newValue }
     }
 }
-

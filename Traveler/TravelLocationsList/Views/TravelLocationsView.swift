@@ -16,11 +16,17 @@ struct TravelLocationsView: View {
     }
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
+            HeaderView(catogories: viewModel.getCatogories())
+            Text("Popular Places") //TODO: move to list item view section
+                .font(.title)
+                .bold()
+                .foregroundColor(.black)
             content
-                .navigationTitle("Experience the World!") //TODO: add localised key
-                .onAppear { self.viewModel.send(event: .onAppear) }
-        }
+                .onAppear { self.viewModel.send(event: .onAppear) } //TODO: Add weak self
+                .frame(height: 280)
+            Spacer()
+        }.padding(.all, 16)
     }
     
     @ViewBuilder
@@ -36,11 +42,17 @@ struct TravelLocationsView: View {
             list(of: travelLocations)
         }
     }
-    
+    @ViewBuilder
     private func list(of travelLocations: [TravelLocation]) -> some View {
-        return List(travelLocations, id: \.self) { travelLocation in
-            NavigationLink(destination: Text(travelLocation.description ?? ""),
-                           label: { TravelLocationItemView(travelLocation: travelLocation) })
+        ScrollView(.horizontal) {
+            LazyHStack {
+                ForEach(travelLocations, id: \.self) { travelLocation in
+                    NavigationLink(destination: Text(travelLocation.description ?? ""),
+                                   label: { TravelLocationItemView(travelLocation: travelLocation)
+                            .frame(width: UIScreen.main.bounds.width / 2.1, height: UIScreen.main.bounds.width / 1.5)
+                    })
+                }
+            }
         }
     }
 }
