@@ -13,7 +13,7 @@ final class TravelLocationsViewModel: ObservableObject {
     private var bag = Set<AnyCancellable>()
     private let input = PassthroughSubject<Event, Never>()
     private let container: DIContainer
-    
+
     @Published private(set) var state = State.idle
 
     init(container: DIContainer) {

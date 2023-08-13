@@ -16,6 +16,8 @@ struct ContentView: View {
     }
     
     var body: some View {
-        TravelLocationsView(viewModel: TravelLocationsViewModel(container: container))
+        NavigationStack {
+            TravelLocationsView(viewModel: TravelLocationsViewModel(container: container))
+        }
     }
 }

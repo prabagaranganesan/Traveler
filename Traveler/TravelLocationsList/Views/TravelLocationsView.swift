@@ -16,12 +16,11 @@ struct TravelLocationsView: View {
     }
     
     var body: some View {
-        NavigationView {
+        VStack {
             content
-                .navigationTitle("Trending places") //TODO: add localised key
+                .navigationTitle("Experience the World!") //TODO: add localised key
+                .onAppear { self.viewModel.send(event: .onAppear) }
         }
-        .onAppear { self.viewModel.send(event: .onAppear) }
-        
     }
     
     @ViewBuilder
@@ -40,9 +39,8 @@ struct TravelLocationsView: View {
     
     private func list(of travelLocations: [TravelLocation]) -> some View {
         return List(travelLocations, id: \.self) { travelLocation in
-            NavigationLink(destination: Text(""),
+            NavigationLink(destination: Text(travelLocation.description ?? ""),
                            label: { TravelLocationItemView(travelLocation: travelLocation) })
-
         }
     }
 }

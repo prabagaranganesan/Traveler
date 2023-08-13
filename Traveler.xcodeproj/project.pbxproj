@@ -129,7 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				50FA7D8B2A889E3B00DE6B72 /* Data */,
-				50FA7D8A2A889E2D00DE6B72 /* Repositories */,
 				50FA7D892A889E1C00DE6B72 /* Views */,
 			);
 			path = TravelLocationsList;
@@ -192,19 +191,12 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		50FA7D8A2A889E2D00DE6B72 /* Repositories */ = {
-			isa = PBXGroup;
-			children = (
-				50FA7D982A88BC5100DE6B72 /* TravelLocationsWebRepository.swift */,
-			);
-			path = Repositories;
-			sourceTree = "<group>";
-		};
 		50FA7D8B2A889E3B00DE6B72 /* Data */ = {
 			isa = PBXGroup;
 			children = (
 				50FA7D722A87DE1E00DE6B72 /* TravelLocationsDTO.swift */,
 				50FA7D9C2A88BF7D00DE6B72 /* RealTravelLocationsInteractor.swift */,
+				50FA7D982A88BC5100DE6B72 /* TravelLocationsWebRepository.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
