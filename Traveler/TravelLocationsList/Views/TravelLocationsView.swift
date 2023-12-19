@@ -10,9 +10,10 @@ import SwiftUI
 
 struct TravelLocationsView: View {
     @ObservedObject var viewModel: TravelLocationsViewModel
-    
+    @State var travelLocations: [TravelLocation] = []
     init(viewModel: TravelLocationsViewModel) {
         self.viewModel = viewModel
+        self.viewModel.send(event: .onAppear)
     }
     
     var body: some View {
@@ -42,17 +43,11 @@ struct TravelLocationsView: View {
             list(of: travelLocations)
         }
     }
+    
     @ViewBuilder
     private func list(of travelLocations: [TravelLocation]) -> some View {
-        ScrollView(.horizontal) {
-            LazyHStack {
-                ForEach(travelLocations, id: \.self) { travelLocation in
-                    NavigationLink(destination: Text(travelLocation.description ?? ""),
-                                   label: { TravelLocationItemView(travelLocation: travelLocation)
-                            .frame(width: UIScreen.main.bounds.width / 2.1, height: UIScreen.main.bounds.width / 1.5)
-                    })
-                }
-            }
+        TravelLocationListView(travelLocations: $viewModel.locations) {
+            viewModel.loadNextPage()
         }
     }
 }

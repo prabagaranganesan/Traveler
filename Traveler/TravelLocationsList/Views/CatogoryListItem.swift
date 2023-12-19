@@ -15,6 +15,7 @@ struct CatogoryItem: Hashable {
 
 struct CatogoryItemView: View {
     let category: CatogoryItem
+    var isSelected: Bool
     
     var body: some View {
         HStack {
@@ -23,9 +24,9 @@ struct CatogoryItemView: View {
                 .frame(width: 30, height: 30)
                 .cornerRadius(4)
             Text(category.title)
-                .foregroundColor(category.isSelected ? .white : .black)
+                .foregroundColor(isSelected ? .white : .black)
         }.padding(.all, 8)
-        .background( category.isSelected ? .blue : .white)
+        .background( isSelected ? .blue : .white)
         .cornerRadius(8)
     }
 }

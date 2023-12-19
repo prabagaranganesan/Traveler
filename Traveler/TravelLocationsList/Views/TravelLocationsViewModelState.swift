@@ -17,6 +17,7 @@ extension TravelLocationsViewModel {
     
     enum Event {
         case onAppear
+        case next
         case onSelectLocation(Int)
         case onTravelLocationLoaded([TravelLocation])
         case onfailedtoLoadLocations(Error)

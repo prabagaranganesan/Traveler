@@ -9,7 +9,7 @@ import Combine
 import Foundation
 
 protocol TravelLocationsWebrepository: WebRepository {
-    func loadTravelLocations(queryText: String) -> AnyPublisher<PageDTO<TravelLocationDTO>, Error>
+    func loadTravelLocations(queryText: String, page: Int) -> AnyPublisher<PageDTO<TravelLocationDTO>, Error>
 }
 
 struct RealTravelLocationsWebRepository: TravelLocationsWebrepository {
@@ -21,7 +21,7 @@ struct RealTravelLocationsWebRepository: TravelLocationsWebrepository {
         self.baseURL = baseURL
     }
     
-    func loadTravelLocations(queryText: String) -> AnyPublisher<PageDTO<TravelLocationDTO>, Error> {
-        return call(endpoint: API.allLocations(query: queryText))
+    func loadTravelLocations(queryText: String, page: Int) -> AnyPublisher<PageDTO<TravelLocationDTO>, Error> {
+        return call(endpoint: API.allLocations(query: queryText, page: page))
     }
 }

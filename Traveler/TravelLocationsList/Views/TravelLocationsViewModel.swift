@@ -13,6 +13,8 @@ final class TravelLocationsViewModel: ObservableObject {
     private var bag = Set<AnyCancellable>()
     private let input = PassthroughSubject<Event, Never>()
     private let container: DIContainer
+    private var currentPage: Int = 1
+    @Published var locations: [TravelLocation] = []
 
     @Published private(set) var state = State.idle
 
@@ -31,7 +33,7 @@ final class TravelLocationsViewModel: ObservableObject {
     
     private func bindingState() {
         Publishers.system(initial: state,
-                          reduce: Self.reduce,
+                          reduce: reduce,
                           scheduler: RunLoop.main,
                           feedbacks: [
                             whenLoading(),
@@ -45,11 +47,15 @@ final class TravelLocationsViewModel: ObservableObject {
         input.send(event)
     }
     
+    func loadNextPage() {
+        input.send(.next)
+    }
+    
     func whenLoading() -> Feedback<State, Event> {
         Feedback { (state: State) -> AnyPublisher<Event, Never> in
             guard case .loading = state else { return Empty().eraseToAnyPublisher() }
             
-            return self.container.interacters.travelLocationsInteractor.load(search: "Miami beaches")
+            return self.container.interacters.travelLocationsInteractor.load(search: "Miami beaches", page: self.currentPage + 1)
                 .map { $0.map(TravelLocation.init) }
                 .map(Event.onTravelLocationLoaded)
                 .catch { Just(Event.onfailedtoLoadLocations($0)) }
@@ -63,7 +69,7 @@ final class TravelLocationsViewModel: ObservableObject {
 }
 
 extension TravelLocationsViewModel {
-    static func reduce(_ state: State, _ event: Event) -> State {
+    func reduce(_ state: State, _ event: Event) -> State {
         switch state {
         case .idle:
             switch event {
@@ -77,12 +83,20 @@ extension TravelLocationsViewModel {
             case .onfailedtoLoadLocations(let error):
                 return .error(error)
             case .onTravelLocationLoaded(let travelLocations):
-                return .loaded(travelLocations)
+                locations += travelLocations
+                return .loaded(locations)
             default:
                 return state
             }
         case .loaded:
-            return state
+            currentPage += 1
+            switch event {
+            case .next:
+                return .loading
+            default:
+                return state
+            }
+            
         case .error:
             return state
             
@@ -92,6 +106,8 @@ extension TravelLocationsViewModel {
 
 extension TravelLocationsViewModel {
     func userInput(input: AnyPublisher<Event, Never>) -> Feedback<State, Event> {
-        Feedback { _ in input }
+        Feedback { event in
+            return input
+        }
     }
 }

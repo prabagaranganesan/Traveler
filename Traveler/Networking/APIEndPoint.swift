@@ -9,7 +9,7 @@ import Foundation
 
 extension RealTravelLocationsWebRepository {
     enum API {
-        case allLocations(query: String)
+        case allLocations(query: String, page: Int)
     }
 }
 
@@ -39,8 +39,9 @@ extension RealTravelLocationsWebRepository.API: APICall {
     var queryParam: [URLQueryItem] {
         var params = [URLQueryItem]()
         switch self {
-        case .allLocations(let query):
+        case .allLocations(let query, let page):
             params.append(URLQueryItem(name: "query", value: query))
+            params.append(URLQueryItem(name: "page", value: "\(page)"))
         }
         params.append(URLQueryItem(name: "client_id", value: "dsy8Epfyn0vHaM8U4VlR6MJpO2YLgk9g6Sn2Q_cq7r4")) //TODO: move api key to safer place
         return params

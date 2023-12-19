@@ -12,6 +12,7 @@
 		504DF1582A89411600E184F1 /* CatogoryListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504DF1572A89411600E184F1 /* CatogoryListItem.swift */; };
 		504DF15A2A8941C600E184F1 /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504DF1592A8941C600E184F1 /* CategoryListView.swift */; };
 		504DF15C2A894B5100E184F1 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504DF15B2A894B5100E184F1 /* SearchBar.swift */; };
+		5063AD2C2A8B2A970016C201 /* TravelLocationsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5063AD2B2A8B2A970016C201 /* TravelLocationsListView.swift */; };
 		50FA7D5B2A8793BE00DE6B72 /* TravelerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FA7D5A2A8793BE00DE6B72 /* TravelerApp.swift */; };
 		50FA7D5D2A8793BE00DE6B72 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50FA7D5C2A8793BE00DE6B72 /* ContentView.swift */; };
 		50FA7D5F2A8793C000DE6B72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50FA7D5E2A8793C000DE6B72 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 		504DF1572A89411600E184F1 /* CatogoryListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatogoryListItem.swift; sourceTree = "<group>"; };
 		504DF1592A8941C600E184F1 /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
 		504DF15B2A894B5100E184F1 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		5063AD2B2A8B2A970016C201 /* TravelLocationsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelLocationsListView.swift; sourceTree = "<group>"; };
 		50FA7D572A8793BE00DE6B72 /* Traveler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Traveler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50FA7D5A2A8793BE00DE6B72 /* TravelerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelerApp.swift; sourceTree = "<group>"; };
 		50FA7D5C2A8793BE00DE6B72 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				504DF1332A89251200E184F1 /* TravelLocationsViewModelState.swift */,
 				50FA7D6E2A87D37500DE6B72 /* TravelLocation.swift */,
 				50FA7D762A87E66E00DE6B72 /* TravelLocationsView.swift */,
+				5063AD2B2A8B2A970016C201 /* TravelLocationsListView.swift */,
 				504DF15B2A894B5100E184F1 /* SearchBar.swift */,
 				504DF1352A893BDB00E184F1 /* HeaderView.swift */,
 				504DF1572A89411600E184F1 /* CatogoryListItem.swift */,
@@ -296,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50FA7D8D2A88BAAB00DE6B72 /* WebReposistory.swift in Sources */,
+				5063AD2C2A8B2A970016C201 /* TravelLocationsListView.swift in Sources */,
 				50FA7D9B2A88BCE500DE6B72 /* APIEndPoint.swift in Sources */,
 				50FA7D8F2A88BAD500DE6B72 /* APICall.swift in Sources */,
 				50FA7D6D2A87D0F600DE6B72 /* TravelLocationsViewModel.swift in Sources */,

@@ -36,7 +36,7 @@ extension DIContainer {
 }
 
 struct StubTravelLocationsInteractor: TravelLocationsInteractor {
-    func load(search: String) -> AnyPublisher<[TravelLocationDTO], Error> {
+    func load(search: String, page: Int) -> AnyPublisher<[TravelLocationDTO], Error> {
         return Empty().eraseToAnyPublisher()
     }
 }

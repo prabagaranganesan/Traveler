@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 
 protocol TravelLocationsInteractor {
-    func load(search: String) -> AnyPublisher<[TravelLocationDTO], Error>
+    func load(search: String, page: Int) -> AnyPublisher<[TravelLocationDTO], Error>
 }
 
 struct RealTravelLocationsInteractor: TravelLocationsInteractor {
@@ -20,8 +20,8 @@ struct RealTravelLocationsInteractor: TravelLocationsInteractor {
         self.webRepository = webRepository
     }
         
-    func load(search: String) -> AnyPublisher<[TravelLocationDTO], Error> {
-        return webRepository.loadTravelLocations(queryText: search)
+    func load(search: String, page: Int) -> AnyPublisher<[TravelLocationDTO], Error> {
+        return webRepository.loadTravelLocations(queryText: search, page: page)
             .map { response in
                 return response.results
             }
